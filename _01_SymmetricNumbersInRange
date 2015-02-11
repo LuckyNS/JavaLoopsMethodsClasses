@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+
+public class _01_SymmetricNumbersInRange {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		int start = input.nextInt();
+		int end = input.nextInt();
+		
+		if (start >= 0 && end <= 999) {
+			if (start < end) {
+				boolean nums = false;
+				for (int i = start; i <= end; i++) {
+					nums = isSymmetric(i);
+					if (nums) {
+						System.out.println(i);
+					}
+				}
+			}
+		}
+	}
+	public static boolean isSymmetric(int numbers) {
+		String value = String.valueOf(numbers);
+		StringBuilder sB = new StringBuilder(value);
+		
+		return (value.equals(sB.reverse().toString()));
+	}
+}
