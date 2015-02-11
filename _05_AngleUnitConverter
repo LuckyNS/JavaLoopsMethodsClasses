@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class _05_AngleUnitConverter {
+
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
+
+		int n = scan.nextInt();
+		Double[] result = new Double[n];
+		String[] measureOutput = new String[n];
+		for (int i = 0; i < n; i++) {
+			double value = scan.nextDouble();
+			String measure = scan.next();
+
+			if (measure.equals("rad")) {
+				double rad = Math.toDegrees(value);
+				measureOutput[i] = "deg";
+				result[i] = rad;
+			} else if (measure.equals("deg")) {
+				double deg = Math.toRadians(value);
+				measureOutput[i] = "rad";
+				result[i] = deg;
+			}
+		}
+		for (int j = 0; j < n; j++) {
+			System.out.printf("%6f %s\r\n", result[j],measureOutput[j]);
+		}
+	}
+}
